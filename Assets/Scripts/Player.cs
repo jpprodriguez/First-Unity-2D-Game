@@ -1,6 +1,6 @@
-﻿using UnityEngine;
-using System.Collections;
-using UnityEngine.UI;
+﻿using CnControls;
+using UnityEngine;
+
 
 public class Player : MonoBehaviour {
 
@@ -10,7 +10,7 @@ public class Player : MonoBehaviour {
     public float jumpPower = 300f;
     //Bool
     public bool grounded;
-    public bool crouched;
+    private bool crouched;
     public bool canDoubleJump;
 
     //References
@@ -22,25 +22,28 @@ public class Player : MonoBehaviour {
     void Start () {
         rb2d = gameObject.GetComponent<Rigidbody2D>();
         anim = gameObject.GetComponent<Animator>();
-        crouched = GameObject.FindGameObjectWithTag("Canvas").GetComponent<VirtualJoystick>().isDownButtonPressed;
 	}
 
     // Update is called once per frame
     
 	void Update () {
-        crouched = GameObject.FindGameObjectWithTag("Canvas").GetComponent<VirtualJoystick>().isDownButtonPressed;
         anim.SetBool("Grounded", grounded);
         anim.SetFloat("Speed", Mathf.Abs(rb2d.velocity.x));
         anim.SetBool("Crouched", crouched);
 
-        GameObject canvas = GameObject.FindGameObjectWithTag("Canvas");
-        float axis = canvas.GetComponent<VirtualJoystick>().getAxis();
-        if (axis < 0)
+        if(CnInputManager.GetAxis("Vertical") < -0.3)
+        {
+            crouched = true;
+        }else
+        {
+            crouched = false;
+        }
+        if (CnInputManager.GetAxis("Horizontal")<0)
         {
             transform.localScale = new Vector3(-1, 1, 1);
         }
 
-        if (axis > 0)
+        if (CnInputManager.GetAxis("Horizontal") > 0)
         {
             transform.localScale = new Vector3(1, 1, 1);
         }
@@ -55,18 +58,22 @@ public class Player : MonoBehaviour {
 
         GameObject canvas = GameObject.FindGameObjectWithTag("Canvas");
 
-        float h = canvas.GetComponent<VirtualJoystick>().getAxis();
+        float h = CnInputManager.GetAxis("Horizontal");
 
         //fake friction / easing the x of our player
         if (grounded)
         {
             rb2d.velocity = easeVelocity;
         }
-        
-        //Moving the Player
-        rb2d.AddForce(Vector2.right * speed * h);
+        //Muevo el personaje solo si no esta agachado
+        if (crouched == false)
+        {
+            //Moving the Player
+            rb2d.AddForce(Vector2.right * speed * h);
+        }
+
         //Limiting the speed of the player
-        if(rb2d.velocity.x > maxSpeed) {
+        if (rb2d.velocity.x > maxSpeed) {
             rb2d.velocity = new Vector2(maxSpeed, rb2d.velocity.y);
         }
 
