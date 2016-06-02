@@ -10,6 +10,7 @@ public class Player : MonoBehaviour {
     public float jumpPower = 300f;
     //Bool
     public bool grounded;
+    public bool crouched;
     public bool canDoubleJump;
 
     //References
@@ -21,13 +22,16 @@ public class Player : MonoBehaviour {
     void Start () {
         rb2d = gameObject.GetComponent<Rigidbody2D>();
         anim = gameObject.GetComponent<Animator>();
+        crouched = GameObject.FindGameObjectWithTag("Canvas").GetComponent<VirtualJoystick>().isDownButtonPressed;
 	}
 
     // Update is called once per frame
     
 	void Update () {
+        crouched = GameObject.FindGameObjectWithTag("Canvas").GetComponent<VirtualJoystick>().isDownButtonPressed;
         anim.SetBool("Grounded", grounded);
         anim.SetFloat("Speed", Mathf.Abs(rb2d.velocity.x));
+        anim.SetBool("Crouched", crouched);
 
         GameObject canvas = GameObject.FindGameObjectWithTag("Canvas");
         float axis = canvas.GetComponent<VirtualJoystick>().getAxis();
@@ -61,7 +65,6 @@ public class Player : MonoBehaviour {
         
         //Moving the Player
         rb2d.AddForce(Vector2.right * speed * h);
-        Debug.Log("fuerza: " + (Vector2.right * speed * h));
         //Limiting the speed of the player
         if(rb2d.velocity.x > maxSpeed) {
             rb2d.velocity = new Vector2(maxSpeed, rb2d.velocity.y);
@@ -71,7 +74,6 @@ public class Player : MonoBehaviour {
         {
             rb2d.velocity = new Vector2(-maxSpeed, rb2d.velocity.y);
         }
-        Debug.Log("velocity= " + rb2d.velocity);
 
     }
 
