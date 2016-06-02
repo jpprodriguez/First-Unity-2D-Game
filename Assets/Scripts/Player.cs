@@ -56,7 +56,6 @@ public class Player : MonoBehaviour {
         easeVelocity.z = 0.0f;
         easeVelocity.x *= 0.75f;
 
-        GameObject canvas = GameObject.FindGameObjectWithTag("Canvas");
 
         float h = CnInputManager.GetAxis("Horizontal");
 
