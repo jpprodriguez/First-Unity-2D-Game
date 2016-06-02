@@ -5,6 +5,7 @@ public class VirtualJoystick : MonoBehaviour {
 
     private float axis= 0;
     private int moveDir = 0;
+    public bool isDownButtonPressed;
 
     public float getAxis()
     {
@@ -16,28 +17,33 @@ public class VirtualJoystick : MonoBehaviour {
     }
     void Update()
     {
-        if(moveDir == -1)
+        if (isDownButtonPressed == false)
         {
-            if (axis > -1)
+            if (moveDir == -1)
             {
-                axis -= 0.05f;
-            }
-            else
-            {
-                axis = -1;
-            }
+                if (axis > -1)
+                {
+                    axis -= 0.05f;
+                }
+                else
+                {
+                    axis = -1;
+                }
 
-        }else if(moveDir == 1)
-        {
-            if (axis < 1)
-            {
-                axis += 0.05f;
             }
-            else
+            else if (moveDir == 1)
             {
-                axis = 1;
+                if (axis < 1)
+                {
+                    axis += 0.05f;
+                }
+                else
+                {
+                    axis = 1;
+                }
             }
         }
+
     }
     public void leftButtonPressed()
     {
@@ -46,6 +52,16 @@ public class VirtualJoystick : MonoBehaviour {
     public void rightButtonPressed()
     {
         moveDir = 1;
+    }
+    public void downButtonPressed()
+    {
+        moveDir = 0;
+        axis = 0;
+        isDownButtonPressed = true;
+    }
+    public void downButtonUp()
+    {
+        isDownButtonPressed = false;
     }
     public void leftButtonUp()
     {
