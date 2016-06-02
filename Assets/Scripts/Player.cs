@@ -1,11 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour {
 
     //Floats
     public float maxSpeed = 3f;
-    public float speed = 50f;
+    public float speed = 150f;
     public float jumpPower = 300f;
     //Bool
     public bool grounded;
@@ -29,7 +30,7 @@ public class Player : MonoBehaviour {
         anim.SetFloat("Speed", Mathf.Abs(rb2d.velocity.x));
 
         GameObject canvas = GameObject.FindGameObjectWithTag("Canvas");
-        int axis = canvas.GetComponent<VirtualJoystick>().getAxis();
+        float axis = canvas.GetComponent<VirtualJoystick>().getAxis();
         if (axis < 0)
         {
             transform.localScale = new Vector3(-1, 1, 1);
@@ -46,21 +47,21 @@ public class Player : MonoBehaviour {
         Vector3 easeVelocity = rb2d.velocity;
         easeVelocity.y = rb2d.velocity.y;
         easeVelocity.z = 0.0f;
-        easeVelocity.x *= 0.80f;
+        easeVelocity.x *= 0.75f;
 
         GameObject canvas = GameObject.FindGameObjectWithTag("Canvas");
 
-        int h = canvas.GetComponent<VirtualJoystick>().getAxis();
+        float h = canvas.GetComponent<VirtualJoystick>().getAxis();
 
         //fake friction / easing the x of our player
         if (grounded)
         {
             rb2d.velocity = easeVelocity;
         }
-
+        
         //Moving the Player
         rb2d.AddForce(Vector2.right * speed * h);
-
+        Debug.Log("fuerza: " + (Vector2.right * speed * h));
         //Limiting the speed of the player
         if(rb2d.velocity.x > maxSpeed) {
             rb2d.velocity = new Vector2(maxSpeed, rb2d.velocity.y);
@@ -70,6 +71,7 @@ public class Player : MonoBehaviour {
         {
             rb2d.velocity = new Vector2(-maxSpeed, rb2d.velocity.y);
         }
+        Debug.Log("velocity= " + rb2d.velocity);
 
     }
 
