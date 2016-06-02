@@ -1,9 +1,12 @@
 ﻿using CnControls;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 
 public class Player : MonoBehaviour {
 
+    //Int
+    public int lifes = 3;
     //Floats
     public float maxSpeed = 3f;
     public float speed = 100f;
@@ -31,7 +34,7 @@ public class Player : MonoBehaviour {
         anim.SetFloat("Speed", Mathf.Abs(rb2d.velocity.x));
         anim.SetBool("Crouched", crouched);
 
-        if(CnInputManager.GetAxis("Vertical") < -0.3)
+        if(CnInputManager.GetAxis("Vertical") < 0)
         {
             crouched = true;
         }else
@@ -46,6 +49,10 @@ public class Player : MonoBehaviour {
         if (CnInputManager.GetAxis("Horizontal") > 0)
         {
             transform.localScale = new Vector3(1, 1, 1);
+        }
+        if(transform.position.y < -2)
+        {
+            Die();
         }
 
     }
@@ -99,6 +106,22 @@ public class Player : MonoBehaviour {
                 rb2d.AddForce(Vector2.up * jumpPower / 1.75f);
             }
         }
+    }
+    public void Damage(int damage)
+    {
+        if(damage > lifes)
+        {
+            lifes = 0;
+        }else
+        {
+            lifes -= damage;
+        }
+    }
+    public void Die()
+    {
+        lifes = 0;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        
     }
         
 }
