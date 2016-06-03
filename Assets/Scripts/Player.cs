@@ -16,6 +16,7 @@ public class Player : MonoBehaviour {
     public bool grounded;
     private bool crouched;
     public bool canDoubleJump;
+    public bool onDoor;
 
     //References
     private Rigidbody2D rb2d;
