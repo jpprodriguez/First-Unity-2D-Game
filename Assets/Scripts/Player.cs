@@ -1,4 +1,5 @@
 ﻿using CnControls;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -51,6 +52,10 @@ public class Player : MonoBehaviour {
             transform.localScale = new Vector3(1, 1, 1);
         }
         if(transform.position.y < -2)
+        {
+            Die();
+        }
+        if(lifes == 0)
         {
             Die();
         }
@@ -122,6 +127,38 @@ public class Player : MonoBehaviour {
         lifes = 0;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         
+    }
+    /*
+    public IEnumerator Knockback(float knockbackDur, float knockbackPwrX, float knockbackPwrY)
+    {
+        if(transform.localScale.x == 1)
+        {
+            knockbackPwrX *= -1;
+        }
+        
+
+        float timer = 0;
+
+        while(knockbackDur > timer)
+        {
+            timer += Time.deltaTime;
+            Debug.Log(Mathf.Clamp(transform.position.x * knockbackPwrX, -5000f, 5000f));
+            if (grounded)
+            {
+                rb2d.AddForce(new Vector3(transform.position.x * knockbackPwrX, transform.position.y, transform.position.z));
+
+            }else
+            {
+                rb2d.AddForce(new Vector3(transform.position.x * knockbackPwrX, transform.position.y * knockbackPwrY, transform.position.z));
+
+            }
+        }
+        yield return 0;
+    }
+    */
+    public void onTouchObstacle(float posX, float posY)
+    {
+        transform.position = new Vector3(posX, posY, transform.position.z);
     }
         
 }
