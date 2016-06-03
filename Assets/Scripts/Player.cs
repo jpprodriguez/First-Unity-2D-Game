@@ -35,8 +35,9 @@ public class Player : MonoBehaviour {
         anim.SetBool("Grounded", grounded);
         anim.SetFloat("Speed", Mathf.Abs(rb2d.velocity.x));
         anim.SetBool("Crouched", crouched);
+        anim.SetBool("onDoor", onDoor);
 
-        if(CnInputManager.GetAxis("Vertical") < 0)
+        if (CnInputManager.GetAxis("Vertical") < 0)
         {
             crouched = true;
         }else
