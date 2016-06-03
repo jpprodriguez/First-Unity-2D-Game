@@ -26,6 +26,7 @@ public class ObstacleCheck : MonoBehaviour {
     */
     void OnTriggerEnter2D(Collider2D col)
     {
+        player.Damage(1);
         player.onTouchObstacle(posX, posY);
     }
 
