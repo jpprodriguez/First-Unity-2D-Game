@@ -27,6 +27,7 @@ public class Player : MonoBehaviour {
     void Start () {
         rb2d = gameObject.GetComponent<Rigidbody2D>();
         anim = gameObject.GetComponent<Animator>();
+
 	}
 
     // Update is called once per frame
@@ -36,7 +37,10 @@ public class Player : MonoBehaviour {
         anim.SetFloat("Speed", Mathf.Abs(rb2d.velocity.x));
         anim.SetBool("Crouched", crouched);
         anim.SetBool("onDoor", onDoor);
-
+        if(Input.GetButtonUp("Jump"))
+        {
+            jump();
+        }
         if (CnInputManager.GetAxis("Vertical") < 0)
         {
             crouched = true;
@@ -65,23 +69,11 @@ public class Player : MonoBehaviour {
     }
     void FixedUpdate() {
 
-        Vector3 easeVelocity = rb2d.velocity;
-        easeVelocity.y = rb2d.velocity.y;
-        easeVelocity.z = 0.0f;
-        easeVelocity.x *= 0.75f;
-
-
         float h = CnInputManager.GetAxis("Horizontal");
-
+        
         //fake friction / easing the x of our player
-        if (grounded)
-        {
-            rb2d.velocity = easeVelocity;
-        }
-        //Muevo el personaje solo si no esta agachado
         if (crouched == false)
         {
-            //Moving the Player
             rb2d.AddForce(Vector2.right * speed * h);
         }
 
@@ -130,7 +122,6 @@ public class Player : MonoBehaviour {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         
     }
-    /*
     public IEnumerator Knockback(float knockbackDur, float knockbackPwrX, float knockbackPwrY)
     {
         if(transform.localScale.x == 1)
@@ -144,20 +135,12 @@ public class Player : MonoBehaviour {
         while(knockbackDur > timer)
         {
             timer += Time.deltaTime;
-            Debug.Log(Mathf.Clamp(transform.position.x * knockbackPwrX, -5000f, 5000f));
-            if (grounded)
-            {
-                rb2d.AddForce(new Vector3(transform.position.x * knockbackPwrX, transform.position.y, transform.position.z));
-
-            }else
-            {
-                rb2d.AddForce(new Vector3(transform.position.x * knockbackPwrX, transform.position.y * knockbackPwrY, transform.position.z));
-
-            }
+            rb2d.velocity = Vector3.zero;
+            rb2d.AddForce(new Vector2(knockbackPwrX, knockbackPwrY));
         }
         yield return 0;
     }
-    */
+    
     public void onTouchObstacle(float posX, float posY)
     {
         transform.position = new Vector3(posX, posY, transform.position.z);
