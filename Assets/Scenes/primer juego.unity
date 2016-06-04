@@ -2012,7 +2012,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startPosition: 2.83
-  endPosition: 5.36
+  endPosition: 5
 --- !u!114 &1501647161
 MonoBehaviour:
   m_ObjectHideFlags: 0
