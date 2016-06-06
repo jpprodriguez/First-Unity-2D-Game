@@ -18,8 +18,7 @@ public class ObstacleCheck : MonoBehaviour {
     {
         if (col.CompareTag("Player"))
         {
-            player.Damage(1);
-            StartCoroutine(player.Knockback(time, pwrX, pwrY));
+            player.onTouchObstacle();
         }
         
     }

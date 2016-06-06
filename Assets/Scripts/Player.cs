@@ -21,18 +21,28 @@ public class Player : MonoBehaviour {
     //References
     private Rigidbody2D rb2d;
     private Animator anim;
+
+    private bool movementEnabled;
     
 
     // Use this for initialization
     void Start () {
+        
+        lifes = PlayerPrefs.GetInt("Player Lifes",3);
         rb2d = gameObject.GetComponent<Rigidbody2D>();
         anim = gameObject.GetComponent<Animator>();
+        enableMovement();
 
-	}
+
+    }
 
     // Update is called once per frame
     
 	void Update () {
+        if(movementEnabled == false)
+        {
+            return;
+        }
         anim.SetBool("Grounded", grounded);
         anim.SetFloat("Speed", Mathf.Abs(rb2d.velocity.x));
         anim.SetBool("Crouched", crouched);
@@ -59,16 +69,16 @@ public class Player : MonoBehaviour {
         }
         if(transform.position.y < -2)
         {
-            Die();
+            Damage(1);
         }
-        if(lifes == 0)
-        {
-            Die();
-        }
+        
 
     }
     void FixedUpdate() {
-
+        if (movementEnabled == false)
+        {
+            return;
+        }
         float h = CnInputManager.GetAxis("Horizontal");
         
         //fake friction / easing the x of our player
@@ -108,19 +118,38 @@ public class Player : MonoBehaviour {
     }
     public void Damage(int damage)
     {
-        if(damage > lifes)
+        
+        if (damage > lifes || damage == lifes)
         {
             lifes = 0;
-        }else
+            PlayerPrefs.SetInt("Player Lifes", 3);
+            
+        }
+        else
         {
             lifes -= damage;
+            PlayerPrefs.SetInt("Player Lifes", lifes);
         }
+        Die();
+
     }
     public void Die()
     {
-        lifes = 0;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        
+        disableMovement();
+        anim.Play("Player_Die");
+        StartCoroutine(ReloadSceneAfterDieAnimation());
+
+    }
+    private void disableMovement()
+    {
+        rb2d.velocity = Vector3.zero;
+        rb2d.isKinematic = true;
+        movementEnabled = false;
+    }
+    private void enableMovement()
+    {
+        rb2d.isKinematic = false;
+        movementEnabled = true;
     }
     public IEnumerator Knockback(float knockbackDur, float knockbackPwrX, float knockbackPwrY)
     {
@@ -141,9 +170,16 @@ public class Player : MonoBehaviour {
         yield return 0;
     }
     
-    public void onTouchObstacle(float posX, float posY)
+    public void onTouchObstacle()
     {
-        transform.position = new Vector3(posX, posY, transform.position.z);
-    }
+        Damage(1);
         
+    }
+    private IEnumerator ReloadSceneAfterDieAnimation()
+    {
+        yield return new WaitForSeconds(3);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+
 }
