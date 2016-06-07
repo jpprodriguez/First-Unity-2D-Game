@@ -5,14 +5,13 @@ public class HUD : MonoBehaviour {
 
     public Sprite[] HeartSprites;
     public Image HeartUI;
-    private Player player;
-	// Use this for initialization
-	void Start () {
-        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
-	}
-	
+    public Text Score;
+    public Text HighScore;
+
 	// Update is called once per frame
 	void Update () {
-        HeartUI.sprite = HeartSprites[player.lifes];
-	}
+        HeartUI.sprite = HeartSprites[GameData.getLifes()];
+        Score.text = GameData.getScore().ToString();
+        HighScore.text = GameData.getHighScore().ToString();
+    }
 }

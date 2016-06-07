@@ -6,8 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour {
 
-    //Int
-    public int lifes = 3;
+    //GameData
+    public GameData gameData;
     //Floats
     public float maxSpeed = 3f;
     public float speed = 100f;
@@ -23,17 +23,16 @@ public class Player : MonoBehaviour {
     private Animator anim;
 
     private bool movementEnabled;
+    private Vector2 lastPosition;
     
 
     // Use this for initialization
     void Start () {
-        
-        lifes = PlayerPrefs.GetInt("Player Lifes",3);
+
+        lastPosition = transform.position;
         rb2d = gameObject.GetComponent<Rigidbody2D>();
         anim = gameObject.GetComponent<Animator>();
         enableMovement();
-
-
     }
 
     // Update is called once per frame
@@ -75,6 +74,11 @@ public class Player : MonoBehaviour {
 
     }
     void FixedUpdate() {
+        if ((transform.position.x - lastPosition.x) >= 1)
+        {
+            GameData.setScore(GameData.getScore() + Mathf.FloorToInt(transform.position.x - lastPosition.x));
+            lastPosition.x = transform.position.x;
+        }
         if (movementEnabled == false)
         {
             return;
@@ -119,16 +123,14 @@ public class Player : MonoBehaviour {
     public void Damage(int damage)
     {
         
-        if (damage > lifes || damage == lifes)
+        if (damage > GameData.getLifes() || damage == GameData.getLifes())
         {
-            lifes = 0;
-            PlayerPrefs.SetInt("Player Lifes", 3);
+            GameData.setLifes(0);
             
         }
         else
         {
-            lifes -= damage;
-            PlayerPrefs.SetInt("Player Lifes", lifes);
+            GameData.setLifes(GameData.getLifes() - damage);
         }
         Die();
 
@@ -178,7 +180,8 @@ public class Player : MonoBehaviour {
     private IEnumerator ReloadSceneAfterDieAnimation()
     {
         yield return new WaitForSeconds(3);
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+
+        GameData.reloadLevel();
     }
 
 
