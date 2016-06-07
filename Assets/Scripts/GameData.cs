@@ -16,7 +16,6 @@ public class GameData : MonoBehaviour {
             setLifes(3);
         }
         highScore = PlayerPrefs.GetInt("HighScore",0);
-        Debug.Log(highScore);
         score = 0;
         
     }
