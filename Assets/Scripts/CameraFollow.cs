@@ -10,6 +10,8 @@ public class CameraFollow : MonoBehaviour {
     public float smoothTimeX;
 
     public GameObject player;
+    public float playerMinOffset;
+    public float playerMaxOffset;
 
     public bool bounds;
 
@@ -30,12 +32,24 @@ public class CameraFollow : MonoBehaviour {
 
         if (bounds)
         {
-            if(posX > minCameraPos.x){
+            if(posX > minCameraPos.x && posX < maxCameraPos.x){
                 minCameraPos.x = posX;
             }
             transform.position = new Vector3(Mathf.Clamp(transform.position.x, minCameraPos.x, maxCameraPos.x),
                 Mathf.Clamp(transform.position.y, minCameraPos.y, maxCameraPos.y),
                 Mathf.Clamp(transform.position.z, minCameraPos.z, maxCameraPos.z));
+        }
+        //Si se pasa el player de la camara para atras, pierde la velocidad
+        if(player.transform.position.x <= minCameraPos.x-playerMinOffset)
+        {
+            player.GetComponent<Player>().setRigidBodyVelocityInX(0);
+            player.transform.position = new Vector2(minCameraPos.x- playerMinOffset, player.transform.position.y);
+        }
+        //Si se pasa el player de la camara para adelante, pierde la velocidad
+        if (player.transform.position.x >= maxCameraPos.x + playerMaxOffset)
+        {
+            player.GetComponent<Player>().setRigidBodyVelocityInX(0);
+            player.transform.position = new Vector2(maxCameraPos.x + playerMaxOffset, player.transform.position.y);
         }
     }
 

@@ -34,7 +34,10 @@ public class Player : MonoBehaviour {
         anim = gameObject.GetComponent<Animator>();
         enableMovement();
     }
-
+    public void setRigidBodyVelocityInX(float val)
+    {
+        rb2d.velocity = new Vector2(val,rb2d.velocity.y);
+    }
     // Update is called once per frame
     
 	void Update () {

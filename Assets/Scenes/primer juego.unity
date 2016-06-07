@@ -816,8 +816,6 @@ GameObject:
   - 114: {fileID: 652285126}
   - 114: {fileID: 652285125}
   - 114: {fileID: 652285129}
-  - 61: {fileID: 652285130}
-  - 251: {fileID: 652285131}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Canvas
@@ -916,37 +914,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseUI: {fileID: 1116761066}
---- !u!61 &652285130
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 652285124}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 6200000, guid: 117c4420e05eba14984b98503a1b6e9f, type: 2}
-  m_IsTrigger: 0
-  m_UsedByEffector: 1
-  m_Offset: {x: -266.06274, y: -0.04109192}
-  serializedVersion: 2
-  m_Size: {x: 61.417694, y: 319.95648}
---- !u!251 &652285131
-PlatformEffector2D:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 652285124}
-  m_Enabled: 1
-  m_UseColliderMask: 1
-  m_ColliderMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_UseOneWay: 1
-  m_UseOneWayGrouping: 0
-  m_SurfaceArc: 180
-  m_UseSideFriction: 0
-  m_UseSideBounce: 0
-  m_SideArc: 1
 --- !u!1 &654255523
 GameObject:
   m_ObjectHideFlags: 0
@@ -1708,7 +1675,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1097408687}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.6, y: 2.1, z: 0}
+  m_LocalPosition: {x: 128.4, y: 3.1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -2942,9 +2909,11 @@ MonoBehaviour:
   smoothTimeY: 0.05
   smoothTimeX: 0.05
   player: {fileID: 1097408687}
+  playerMinOffset: 0
+  playerMaxOffset: 0
   bounds: 1
   minCameraPos: {x: 5.07, y: 3.14, z: 0}
-  maxCameraPos: {x: 130.7, y: 7.87, z: 0}
+  maxCameraPos: {x: 131.3, y: 7.87, z: 0}
 --- !u!114 &1549407061
 MonoBehaviour:
   m_ObjectHideFlags: 0
