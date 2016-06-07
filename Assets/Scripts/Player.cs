@@ -23,12 +23,13 @@ public class Player : MonoBehaviour {
     private Animator anim;
 
     private bool movementEnabled;
+    private Vector2 lastPosition;
     
 
     // Use this for initialization
     void Start () {
-        
-        
+
+        lastPosition = transform.position;
         rb2d = gameObject.GetComponent<Rigidbody2D>();
         anim = gameObject.GetComponent<Animator>();
         enableMovement();
@@ -73,6 +74,11 @@ public class Player : MonoBehaviour {
 
     }
     void FixedUpdate() {
+        if ((transform.position.x - lastPosition.x) >= 1)
+        {
+            GameData.setScore(GameData.getScore() + Mathf.FloorToInt(transform.position.x - lastPosition.x));
+            lastPosition.x = transform.position.x;
+        }
         if (movementEnabled == false)
         {
             return;
