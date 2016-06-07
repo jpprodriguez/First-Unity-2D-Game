@@ -15,8 +15,10 @@ public class GameData : MonoBehaviour {
         {
             setLifes(3);
         }
-        score = PlayerPrefs.GetInt("Score", 0);
-        score = PlayerPrefs.GetInt("HighScore", 0);
+        highScore = PlayerPrefs.GetInt("HighScore",0);
+        Debug.Log(highScore);
+        score = 0;
+        
     }
 	void Update()
     {
@@ -42,7 +44,6 @@ public class GameData : MonoBehaviour {
     public static void setScore(int newScore)
     {
         score = newScore;
-        PlayerPrefs.SetInt("Score", newScore);
     }
     public static int getHighScore()
     {
@@ -51,12 +52,11 @@ public class GameData : MonoBehaviour {
     public static void setHighScore(int newScore)
     {
         highScore = newScore;
-        PlayerPrefs.SetInt("Highscore", newScore);
+        PlayerPrefs.SetInt("HighScore", newScore);
     }
 
     public static void reloadLevel()
     {
-        setScore(0);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
