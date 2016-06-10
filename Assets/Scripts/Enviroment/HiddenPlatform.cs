@@ -22,7 +22,6 @@ public class HiddenPlatform : MonoBehaviour {
 	void Update () {
         if (startMoving == true)
         {
-            Debug.Log(transform.position.x);
             if (transform.position.x >= maxPos)
             {
                 rb2d.velocity = new Vector2(-velocity, rb2d.velocity.y);

@@ -46,7 +46,7 @@ public class Player : MonoBehaviour {
             return;
         }
         anim.SetBool("Grounded", grounded);
-        anim.SetFloat("Speed", Mathf.Abs(rb2d.velocity.x));
+        anim.SetFloat("Speed", Mathf.Abs(CnInputManager.GetAxis("Horizontal")));
         anim.SetBool("Crouched", crouched);
         anim.SetBool("onDoor", onDoor);
         if(Input.GetButtonUp("Jump"))
