@@ -12,7 +12,6 @@ public class GroundCheck : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        Debug.Log(col.tag);
         if(col.CompareTag("Ground"))
         {
             player.grounded = true;

@@ -9,6 +9,7 @@ public class GameData : MonoBehaviour {
     private static int highScore;
 	// Use this for initialization
 	void Start () {
+        AudioListener.volume = getVolume();
         lifes = PlayerPrefs.GetInt("Player Lifes", 3);
         if (lifes == 0)
         {
@@ -101,6 +102,15 @@ public class GameData : MonoBehaviour {
     public static void setControlSize(int size)
     {
         PlayerPrefs.SetInt("ControlSize", size);
+    }
+    public static float getVolume()
+    {
+        return PlayerPrefs.GetFloat("Volume",1f);
+    }
+    public static void setVolume(float volume)
+    {
+        PlayerPrefs.SetFloat("Volume", volume);
+        
     }
 
 

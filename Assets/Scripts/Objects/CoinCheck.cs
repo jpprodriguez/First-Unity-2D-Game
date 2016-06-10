@@ -7,6 +7,7 @@ public class CoinCheck : MonoBehaviour {
     {
         if (col.CompareTag("Player"))
         {
+            GetComponent<PlaySound>().playSound(false);
             GameData.setScore(GameData.getScore() + 50);
             Destroy(gameObject);
         }

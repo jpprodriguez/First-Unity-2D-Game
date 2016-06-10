@@ -489,6 +489,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   optionsUI: {fileID: 133832}
   controlSlider: {fileID: 11443062}
+  volumeSlider: {fileID: 11406898}
 --- !u!114 &11419462
 MonoBehaviour:
   m_ObjectHideFlags: 1

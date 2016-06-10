@@ -6,8 +6,6 @@ using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour {
 
-    //GameData
-    public GameData gameData;
     //Floats
     public float maxSpeed = 3f;
     public float speed = 100f;
@@ -21,6 +19,7 @@ public class Player : MonoBehaviour {
     //References
     private Rigidbody2D rb2d;
     private Animator anim;
+    private PlayerSounds playerSounds;
 
     private bool movementEnabled;
     private Vector2 lastPosition;
@@ -32,6 +31,7 @@ public class Player : MonoBehaviour {
         lastPosition = transform.position;
         rb2d = gameObject.GetComponent<Rigidbody2D>();
         anim = gameObject.GetComponent<Animator>();
+        playerSounds = gameObject.GetComponent<PlayerSounds>();
         enableMovement();
     }
     public void setRigidBodyVelocityInX(float val)
@@ -110,6 +110,7 @@ public class Player : MonoBehaviour {
     {
         if (grounded)
         {
+            playerSounds.playJumpSound();
             rb2d.AddForce(Vector2.up * jumpPower);
             canDoubleJump = true;
         }
@@ -117,6 +118,7 @@ public class Player : MonoBehaviour {
         {
             if (canDoubleJump == true)
             {
+                playerSounds.playJumpSound();
                 canDoubleJump = false;
                 rb2d.velocity = new Vector2(rb2d.velocity.x, 0);
                 rb2d.AddForce(Vector2.up * jumpPower / 1.75f);
@@ -140,6 +142,7 @@ public class Player : MonoBehaviour {
     }
     public void Die()
     {
+        playerSounds.playDeathSound();
         disableMovement();
         anim.Play("Player_Die");
         StartCoroutine(ReloadSceneAfterDieAnimation());
