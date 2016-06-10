@@ -4,12 +4,11 @@ using System.Collections;
 
 public class OptionsMenu : MonoBehaviour {
 
-    public GameObject menu;
     public GameObject optionsUI;
     public Slider controlSlider;
 	// Use this for initialization
 	void Start () {
-        optionsUI.SetActive(false);
+        dissapearMenu();
         controlSlider.value = GameData.getControlSize();
         controlSlider.onValueChanged.AddListener(delegate { controlSliderCheck(); });
 
@@ -19,14 +18,13 @@ public class OptionsMenu : MonoBehaviour {
     {
         GameData.setControlSize(Mathf.RoundToInt(controlSlider.value));
     }
-    public void backPressed()
+    
+    public void dissapearMenu()
     {
-        closeOptionsMenu();
+        transform.localScale = new Vector3(0, 0, 0);
     }
-    private void closeOptionsMenu()
+    public void appearMenu()
     {
-        optionsUI.SetActive(false);
-        menu.SetActive(true);
-
+        transform.localScale = new Vector3(1, 1, 1);
     }
 }

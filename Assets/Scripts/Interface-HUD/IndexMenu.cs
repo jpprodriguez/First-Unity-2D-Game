@@ -38,8 +38,22 @@ public class IndexMenu : MonoBehaviour {
     
     private void openOptionsMenu()
     {
-        pauseUI.SetActive(false);
-        optionsUI.SetActive(true);
+        optionsUI.GetComponent<OptionsMenu>().appearMenu();
+        dissapearMenu();
+    }
+    public void closeOptionsMenu()
+    {
+        optionsUI.GetComponent<OptionsMenu>().dissapearMenu();
+        appearMenu();
+
+    }
+    public void dissapearMenu()
+    {
+        transform.localScale = new Vector3(0, 0, 0);
+    }
+    public void appearMenu()
+    {
+        transform.localScale = new Vector3(1, 1, 1);
     }
 
 }

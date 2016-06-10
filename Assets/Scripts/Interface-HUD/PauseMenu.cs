@@ -9,23 +9,30 @@ public class PauseMenu : MonoBehaviour {
     private bool paused = false;
     void Start()
     {
-        pauseUI.SetActive(false);
-        optionsUI.SetActive(false);
+        paused = false;
+        dissapearMenu();
     }
-
+    public void dissapearMenu()
+    {
+        transform.localScale = new Vector3(0, 0, 0);
+    }
+    public void appearMenu()
+    {
+        transform.localScale = new Vector3(1, 1, 1);
+    }
     public void pauseButtonPressed()
     {
         paused = !paused;
 
         if (paused)
         {
-            pauseUI.SetActive(true);
+            appearMenu();
             Time.timeScale = 0;
         }
         else
         {
-            pauseUI.SetActive(false);
-            optionsUI.SetActive(false);
+            dissapearMenu();
+            optionsUI.GetComponent<OptionsMenu>().dissapearMenu();
             Time.timeScale = 1;
         }
     }
@@ -52,7 +59,13 @@ public class PauseMenu : MonoBehaviour {
     }
     public void openOptionsMenu()
     {
-        pauseUI.SetActive(false);
-        optionsUI.SetActive(true);
+        dissapearMenu();
+        optionsUI.GetComponent<OptionsMenu>().appearMenu();
+    }
+    public void closeOptionsMenu()
+    {
+        optionsUI.GetComponent<OptionsMenu>().dissapearMenu();
+        appearMenu();
+
     }
 }

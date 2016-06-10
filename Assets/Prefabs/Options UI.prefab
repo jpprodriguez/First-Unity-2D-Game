@@ -10,7 +10,7 @@ GameObject:
   - 224: {fileID: 22458820}
   - 222: {fileID: 22278154}
   - 114: {fileID: 11441186}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Title
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27,7 +27,7 @@ GameObject:
   - 224: {fileID: 22423896}
   - 222: {fileID: 22209894}
   - 114: {fileID: 11430728}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42,7 +42,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 224: {fileID: 22412832}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Fill Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -59,7 +59,7 @@ GameObject:
   - 224: {fileID: 22483566}
   - 222: {fileID: 22277398}
   - 114: {fileID: 11425422}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -74,7 +74,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 224: {fileID: 22410150}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Handle Slide Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -92,7 +92,7 @@ GameObject:
   - 222: {fileID: 22228830}
   - 114: {fileID: 11490476}
   - 114: {fileID: 11418122}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Options UI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -109,7 +109,7 @@ GameObject:
   - 224: {fileID: 22401092}
   - 222: {fileID: 22279126}
   - 114: {fileID: 11442948}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -126,7 +126,7 @@ GameObject:
   - 224: {fileID: 22474336}
   - 222: {fileID: 22205174}
   - 114: {fileID: 11465248}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Handle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -144,7 +144,7 @@ GameObject:
   - 222: {fileID: 22292784}
   - 114: {fileID: 11464362}
   - 114: {fileID: 11498044}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Idioma
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -161,7 +161,7 @@ GameObject:
   - 224: {fileID: 22484432}
   - 222: {fileID: 22247316}
   - 114: {fileID: 11405444}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Handle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -179,7 +179,7 @@ GameObject:
   - 222: {fileID: 22287612}
   - 114: {fileID: 11456766}
   - 114: {fileID: 11496138}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Atras
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -196,7 +196,7 @@ GameObject:
   - 224: {fileID: 22493420}
   - 222: {fileID: 22203982}
   - 114: {fileID: 11415072}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -214,7 +214,7 @@ GameObject:
   - 222: {fileID: 22272422}
   - 114: {fileID: 11419462}
   - 114: {fileID: 11476474}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Borrar Highscore
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -231,7 +231,7 @@ GameObject:
   - 224: {fileID: 22442362}
   - 222: {fileID: 22294446}
   - 114: {fileID: 11455194}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -248,7 +248,7 @@ GameObject:
   - 224: {fileID: 22483158}
   - 222: {fileID: 22253092}
   - 114: {fileID: 11475004}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -263,7 +263,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 224: {fileID: 22458716}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Fill Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -280,7 +280,7 @@ GameObject:
   - 224: {fileID: 22483686}
   - 222: {fileID: 22289716}
   - 114: {fileID: 11454586}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -297,7 +297,7 @@ GameObject:
   - 224: {fileID: 22422254}
   - 222: {fileID: 22202586}
   - 114: {fileID: 11471614}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -314,7 +314,7 @@ GameObject:
   - 224: {fileID: 22445956}
   - 222: {fileID: 22296842}
   - 114: {fileID: 11499458}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -330,7 +330,7 @@ GameObject:
   m_Component:
   - 224: {fileID: 22457802}
   - 114: {fileID: 11406898}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Sonido
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -346,7 +346,7 @@ GameObject:
   m_Component:
   - 224: {fileID: 22481192}
   - 114: {fileID: 11443062}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: "Tama\xF1o Controles"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -361,7 +361,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 224: {fileID: 22470564}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Handle Slide Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -487,7 +487,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e1df8196c4f9a74396d04a8ba2d51b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  menu: {fileID: 0}
   optionsUI: {fileID: 133832}
   controlSlider: {fileID: 11443062}
 --- !u!114 &11419462
@@ -1010,8 +1009,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11418122}
-        m_MethodName: backPressed
+      - m_Target: {fileID: 0}
+        m_MethodName: closeOptionsMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
