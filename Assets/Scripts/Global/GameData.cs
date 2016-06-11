@@ -7,9 +7,13 @@ public class GameData : MonoBehaviour {
     private static int lifes;
     private static int score;
     private static int highScore;
+    private static int maxScore;
+    private static int coinScore = 50;
+    private static int totalLevels;
 	// Use this for initialization
 	void Start () {
         AudioListener.volume = getVolume();
+        totalLevels = getTotalLevels();
         lifes = PlayerPrefs.GetInt("Player Lifes", 3);
         if (lifes == 0)
         {
@@ -25,6 +29,30 @@ public class GameData : MonoBehaviour {
         {
             setHighScore(score);
         }
+    }
+    public static int getTotalLevels()
+    {
+        return totalLevels;
+    }
+    public static void setTotalLevels(int newLevels)
+    {
+        totalLevels = newLevels;
+    }
+    public static void setCoinScore(int score)
+    {
+        coinScore = score;
+    }
+    public static int getCoinScore()
+    {
+        return coinScore;
+    }
+    public static void setMaxScore(int newMaxScore)
+    {
+        maxScore = newMaxScore;
+    }
+    public static int getMaxScore()
+    {
+        return maxScore;
     }
     public static void setLifes(int newLifes)
     {

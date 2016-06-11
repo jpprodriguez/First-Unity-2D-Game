@@ -19,13 +19,14 @@ public class IndexMenu : MonoBehaviour {
 	
 	public void loadGamePressed()
     {
-        SceneManager.LoadScene(LevelToScene.levelToSceneName(GameData.getLevel()));
+        SceneManager.LoadScene("LevelLoad");
     }
     public void newGamePressed()
     {
         GameData.deleteAllPrefs();
         GameData.setProfileLoaded(true);
-        SceneManager.LoadScene(LevelToScene.levelToSceneName(1));
+        GameData.SetLevel(1);
+        SceneManager.LoadScene("LevelLoad");
     }
     public void quitPressed()
     {
