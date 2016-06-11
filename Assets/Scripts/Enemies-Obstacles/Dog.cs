@@ -11,7 +11,7 @@ public class Dog : MonoBehaviour {
     //References
     private Rigidbody2D rb2d;
     private Animator anim;
-    private Player player;
+    public Player player;
 
     //Estados
     private static string[] states = new string[2] { "idle", "follow player" };
@@ -22,7 +22,6 @@ public class Dog : MonoBehaviour {
     void Start () {
         rb2d = gameObject.GetComponent<Rigidbody2D>();
         anim = gameObject.GetComponent<Animator>();
-        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
     }
 	
 	// Update is called once per frame
