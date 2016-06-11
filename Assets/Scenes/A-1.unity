@@ -1133,6 +1133,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fd4272177fbd3d4f8ac9356303db4b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 1097408693}
   text: {fileID: 1066280114}
   material1: {fileID: 10302, guid: 0000000000000000f000000000000000, type: 0}
   material2: {fileID: 10754, guid: 0000000000000000e000000000000000, type: 0}
@@ -1309,6 +1310,7 @@ MonoBehaviour:
   speed: 25
   minX: 69
   maxX: 93.8
+  player: {fileID: 1097408693}
 --- !u!61 &464497360
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1362,6 +1364,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 824b31795ab7ca24880f367470b49e44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 1097408693}
 --- !u!61 &464497364
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3942,6 +3945,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 824b31795ab7ca24880f367470b49e44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 1097408693}
 --- !u!212 &1024160228
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4478,7 +4482,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1097408687}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 55.77, y: 0.25, z: 0}
+  m_LocalPosition: {x: 3, y: 1.42, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -5643,6 +5647,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 824b31795ab7ca24880f367470b49e44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 1097408693}
 --- !u!61 &1417669644
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5847,6 +5852,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 824b31795ab7ca24880f367470b49e44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 1097408693}
 --- !u!212 &1492877791
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5963,6 +5969,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 824b31795ab7ca24880f367470b49e44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 1097408693}
 --- !u!61 &1501647162
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6286,6 +6293,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 824b31795ab7ca24880f367470b49e44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 1097408693}
 --- !u!212 &1535973825
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6583,6 +6591,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 824b31795ab7ca24880f367470b49e44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 1097408693}
 --- !u!212 &1583596620
 SpriteRenderer:
   m_ObjectHideFlags: 0

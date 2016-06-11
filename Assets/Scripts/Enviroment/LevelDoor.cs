@@ -4,14 +4,13 @@ using UnityEngine.UI;
 
 public class LevelDoor : MonoBehaviour {
 
-    private Player player;
+    public Player player;
     public Text text;
     public Material material1;
     public Material material2;
     private SpriteRenderer sprite;
     // Use this for initialization
     void Start () {
-        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         sprite = gameObject.GetComponent<SpriteRenderer>();
     }
 	

@@ -77,6 +77,11 @@ public class Player : MonoBehaviour {
 
     }
     void FixedUpdate() {
+
+        Vector3 easeVelocity = rb2d.velocity;
+        easeVelocity.y = rb2d.velocity.y;
+        easeVelocity.x *= 0.75f;
+        easeVelocity.z = 0;
         if ((transform.position.x - lastPosition.x) >= 1)
         {
             GameData.setScore(GameData.getScore() + Mathf.FloorToInt(transform.position.x - lastPosition.x));
@@ -87,7 +92,10 @@ public class Player : MonoBehaviour {
             return;
         }
         float h = CnInputManager.GetAxis("Horizontal");
-        
+        if (grounded)
+        {
+            rb2d.velocity = easeVelocity;
+        }
         //fake friction / easing the x of our player
         if (crouched == false)
         {
