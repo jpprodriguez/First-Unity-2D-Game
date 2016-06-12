@@ -16,19 +16,20 @@ public class Player : MonoBehaviour {
     public bool canDoubleJump;
     public bool onDoor;
 
+    public Camera Camera;
+
     //References
     private Rigidbody2D rb2d;
     private Animator anim;
     private PlayerSounds playerSounds;
 
     private bool movementEnabled;
-    private Vector2 lastPosition;
     
 
     // Use this for initialization
     void Start () {
 
-        lastPosition = transform.position;
+
         rb2d = gameObject.GetComponent<Rigidbody2D>();
         anim = gameObject.GetComponent<Animator>();
         playerSounds = gameObject.GetComponent<PlayerSounds>();
@@ -49,6 +50,10 @@ public class Player : MonoBehaviour {
         anim.SetFloat("Speed", Mathf.Abs(CnInputManager.GetAxis("Horizontal")));
         anim.SetBool("Crouched", crouched);
         anim.SetBool("onDoor", onDoor);
+        if(CnInputManager.GetAxis("Vertical") > 0 && onDoor == true)
+        {
+            Camera.GetComponent<CameraShrink>().shrinkCamera();
+        }
         if(Input.GetButtonUp("Jump"))
         {
             jump();
@@ -82,11 +87,6 @@ public class Player : MonoBehaviour {
         easeVelocity.y = rb2d.velocity.y;
         easeVelocity.x *= 0.75f;
         easeVelocity.z = 0;
-        if ((transform.position.x - lastPosition.x) >= 1)
-        {
-            GameData.setScore(GameData.getScore() + Mathf.FloorToInt(transform.position.x - lastPosition.x));
-            lastPosition.x = transform.position.x;
-        }
         if (movementEnabled == false)
         {
             return;
