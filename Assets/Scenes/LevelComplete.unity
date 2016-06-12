@@ -434,9 +434,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pressToContinue: {fileID: 920863130}
-  maxScore: {fileID: 6504046}
-  totalScore: {fileID: 1642299120}
-  percentage: {fileID: 2051467548}
+  maxScore: {fileID: 740312563}
+  totalScore: {fileID: 1548643118}
+  percentage: {fileID: 145139399}
   level: {fileID: 1429552462}
 --- !u!1 &740312561
 GameObject:
