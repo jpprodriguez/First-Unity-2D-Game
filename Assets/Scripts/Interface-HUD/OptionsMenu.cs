@@ -36,4 +36,8 @@ public class OptionsMenu : MonoBehaviour {
     {
         transform.localScale = new Vector3(1, 1, 1);
     }
+    public void resetHighscore()
+    {
+        GameData.resetHighscore();
+    }
 }

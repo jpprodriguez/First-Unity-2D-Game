@@ -120,9 +120,11 @@ public class GameData : MonoBehaviour {
         PlayerPrefs.DeleteKey("Player Lifes") ;
         PlayerPrefs.DeleteKey("Level"); 
         PlayerPrefs.DeleteKey("isProfileLoaded");
+    }
+    public static void resetHighscore()
+    {
         PlayerPrefs.DeleteKey("HighScore");
     }
-
     public static int getControlSize()
     {
         return PlayerPrefs.GetInt("ControlSize", 100);
