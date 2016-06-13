@@ -5330,6 +5330,10 @@ Prefab:
       propertyPath: m_Name
       value: Moving platform
       objectReference: {fileID: 0}
+    - target: {fileID: 11430450, guid: 98cfc686d4609044d93f3ae439d0b763, type: 2}
+      propertyPath: isHidden
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 98cfc686d4609044d93f3ae439d0b763, type: 2}
   m_IsPrefabParent: 0
