@@ -4,7 +4,9 @@ using System.Collections;
 public class KineticObstacle : MonoBehaviour {
     public float startPosition;
     public float endPosition;
+    public float speed;
     private int direction =1;
+    
 	// Use this for initialization
 	void Start () {
         transform.position = new Vector3(transform.position.x, startPosition, transform.position.z);
@@ -24,10 +26,10 @@ public class KineticObstacle : MonoBehaviour {
 
         if(direction == 1)
         {
-            transform.position = new Vector3(transform.position.x, actualPosition += (Time.deltaTime *10), transform.position.z);
+            transform.position = new Vector3(transform.position.x, actualPosition += (Time.deltaTime *10 * speed), transform.position.z);
         }else
         {
-            transform.position = new Vector3(transform.position.x, actualPosition -= (Time.deltaTime), transform.position.z);
+            transform.position = new Vector3(transform.position.x, actualPosition -= (Time.deltaTime * speed), transform.position.z);
         }
 	}
 }

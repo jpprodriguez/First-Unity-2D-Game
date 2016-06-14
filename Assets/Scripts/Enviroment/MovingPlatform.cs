@@ -1,21 +1,28 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class HiddenPlatform : MonoBehaviour {
+public class MovingPlatform : MonoBehaviour {
 
     public float velocity;
     public float minPos;
     public float maxPos;
+    public bool isHidden;
 
     private bool startMoving;
     private SpriteRenderer spriteRenderer;
+    
     private Rigidbody2D rb2d;
     // Use this for initialization
     void Start () {
         startMoving = false;
-        spriteRenderer =GetComponent<SpriteRenderer>();
+        if (isHidden)
+        {
+            spriteRenderer = GetComponent<SpriteRenderer>();
+            spriteRenderer.enabled = false;
+        }
+        
         rb2d = GetComponent<Rigidbody2D>();
-        spriteRenderer.enabled = false;
+        
     }
 	
 	// Update is called once per frame
@@ -38,7 +45,11 @@ public class HiddenPlatform : MonoBehaviour {
         {
             if (col.CompareTag("Player"))
             {
-                spriteRenderer.enabled = true;
+                if (isHidden)
+                {
+                    spriteRenderer.enabled = true;
+                }
+                
                 startMoving = true;
                 rb2d.velocity = new Vector2(velocity, rb2d.velocity.y);
 
